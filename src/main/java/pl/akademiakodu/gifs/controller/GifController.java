@@ -46,22 +46,24 @@ public class GifController {
 
     // Odpowiada za zmiane tagu
     @PostMapping("/gif/{name}")
-    public String changeTag(@ModelAttribute Gif editedGif, @PathVariable String name) {
-        Gif gif = gifService.findGifByName(name);
-        gifService.changeTag(gif, editedGif.getTag());
+    public String changeTag(@ModelAttribute Gif editedGif) {
+      //  Gif gif = gifService.findGifByName(name);
+        gifService.changeTag(editedGif);
         return "redirect:/gif/{name}";
     }
 
     // Odpowiada za zmiane kategorii
     @PostMapping("/gif/{name}/updateCategory")
-    public String changeCategory(@ModelAttribute Gif editedGif, @PathVariable String name) {
-        Gif gif = gifService.findGifByName(name);
-        gif.setCategoryId(editedGif.getCategoryId());
-        gifService.changeCategory(gif);
+    public String changeCategory(@ModelAttribute Gif editedGif) {
+        //Gif gif = gifService.findGifByName(name);
+       // gif.setCategoryId(editedGif.getCategoryId());
+        gifService.changeCategory(editedGif);
 
-        /** gdyby operować na {id} a nie na {name}, to wyglądało by to tak:
+        /**
+            gdyby operować na {id} a nie na {name}, to wyglądało by to tak:
             gifService.changeCategory(editedGif);
          **/
+
         return "redirect:/gif/{name}";
     }
 

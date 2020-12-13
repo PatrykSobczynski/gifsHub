@@ -11,7 +11,7 @@ public interface GifService {
 
     Gif findGifByName(String name);
 
-    void changeTag(Gif gif, String tag);
+    void changeTag(Gif gif);
 
     void toggleFavorite(Gif gif);
 
